@@ -100,7 +100,6 @@ if not st.session_state.logged_in:
     st.markdown("""<div class="login-wrap">
         <div class="login-logo">💰</div>
         <div class="login-title">CaixaViva</div>
-        <div class="login-sub">PLANO PRO</div>
         <div class="login-sub">Dashboard financeiro em tempo real</div>
     </div>""", unsafe_allow_html=True)
     _, col_c, _ = st.columns([1,1.4,1])
@@ -311,22 +310,18 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ── Auto-refresh ──────────────────────────────────────────────────────────────
-if auto:
-    time.sleep(intervalo)
-    st.rerun()
+# (movido para o final para não bloquear os lembretes)
 
 # ══════════════════════════════════════════════════════════════════════════════
 #  LEMBRETES DE PAGAMENTOS
 # ══════════════════════════════════════════════════════════════════════════════
 st.markdown('<div class="sec">🔔 Lembretes de Pagamentos</div>', unsafe_allow_html=True)
 
-# Inicializa lista de pagamentos na sessão
 if "pagamentos" not in st.session_state:
     st.session_state.pagamentos = []
 
 hoje_dt = datetime.today().date()
 
-# ── Alertas ativos ────────────────────────────────────────────────────────────
 alertas = [p for p in st.session_state.pagamentos
            if 0 <= (p["vencimento"] - hoje_dt).days <= 3]
 
@@ -350,7 +345,6 @@ if alertas:
             f'<div style="font-size:20px;font-weight:800">{fmt(a["valor"])}</div>'
             f'</div>', unsafe_allow_html=True)
 
-# ── Formulário novo pagamento ─────────────────────────────────────────────────
 with st.expander("➕ Cadastrar novo pagamento futuro"):
     col_a, col_b, col_c = st.columns(3)
     with col_a:
@@ -372,32 +366,30 @@ with st.expander("➕ Cadastrar novo pagamento futuro"):
         else:
             st.warning("Preencha a descrição e o valor.")
 
-# ── Lista de todos os pagamentos ──────────────────────────────────────────────
 if st.session_state.pagamentos:
     st.markdown("**📋 Pagamentos cadastrados**")
     for i, p in enumerate(sorted(st.session_state.pagamentos, key=lambda x: x["vencimento"])):
         dias = (p["vencimento"] - hoje_dt).days
         if dias < 0:
-            status = "✅ Pago/Vencido"
-            cor_s  = "#64748b"
+            status, cor_s = "✅ Vencido", "#64748b"
         elif dias == 0:
-            status = "🔴 Vence hoje"
-            cor_s  = "#ef4444"
+            status, cor_s = "🔴 Vence hoje", "#ef4444"
         elif dias <= 3:
-            status = f"⚠️ {dias}d restantes"
-            cor_s  = "#f59e0b"
+            status, cor_s = f"⚠️ {dias}d restantes", "#f59e0b"
         else:
-            status = f"🟢 {dias}d restantes"
-            cor_s  = "#22c55e"
+            status, cor_s = f"🟢 {dias}d restantes", "#22c55e"
 
         col_i, col_j, col_k, col_l = st.columns([3,2,2,1])
         col_i.write(f"**{p['descricao']}**")
         col_j.write(p["vencimento"].strftime("%d/%m/%Y"))
         col_k.write(fmt(p["valor"]))
         col_l.markdown(f'<span style="color:{cor_s};font-weight:700;font-size:13px">{status}</span>', unsafe_allow_html=True)
-
         if col_l.button("🗑️", key=f"del_{i}", help="Remover"):
-            st.session_state.pagamentos.pop(i)
-            st.rerun()
+            st.session_state.pagamentos.pop(i); st.rerun()
 else:
     st.info("Nenhum pagamento cadastrado ainda. Use o formulário acima para adicionar.")
+
+# ── Auto-refresh (aqui no final para não bloquear a UI) ───────────────────────
+if auto:
+    time.sleep(intervalo)
+    st.rerun()
