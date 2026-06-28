@@ -1,8 +1,3 @@
-"""
-CaixaViva — Dashboard de Caixa
-Streamlit + Google Sheets + Login + Planos (Básico / Profissional / Empresarial)
-"""
-
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -25,8 +20,8 @@ CLIENTES = {
         "sheet_url": "https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVE2upms/export?format=csv&gid=0",
         "cor": "#2563eb", "plano": "basico", "meta_mensal": 0,
     },
-    "demo_pro": {
-        "senha_hash": _h("demo456"), "nome": "Empresa Demo Pro",
+    "igreja1": {
+        "senha_hash": _h("Ipipqbrasil2026"), "nome": "Empresa Demo Pro",
         "sheet_url": "https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVE2upms/export?format=csv&gid=0",
         "cor": "#16a34a", "plano": "profissional", "meta_mensal": 0,
     },
