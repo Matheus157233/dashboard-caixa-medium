@@ -1,8 +1,3 @@
-"""
-CaixaViva — Plano Profissional
-Funcionalidades: KPIs + Fluxo diário + Pizzas + Barras + Mensal + Top categorias + Tabela + Filtros avançados
-"""
-
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -20,10 +15,10 @@ st.set_page_config(page_title="CaixaViva Pro", page_icon="💰", layout="wide",
 def _h(s): return hashlib.sha256(s.encode()).hexdigest()
 
 CLIENTES = {
-    "demo": {
+    "demo_pro": {
         "senha_hash": _h("demo456"),
         "nome": "Empresa Demo Pro",
-        "sheet_url": "https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVE2upms/export?format=csv&gid=0",
+        "sheet_url": "https://docs.google.com/spreadsheets/d/12niquKcUF-_gZPpJWUVJu2OKddUzOnBriGEe1KPcWG8/export?format=csv&gid=0",
         "cor": "#16a34a",
     },
     # "cliente1": {
@@ -105,6 +100,7 @@ if not st.session_state.logged_in:
     st.markdown("""<div class="login-wrap">
         <div class="login-logo">💰</div>
         <div class="login-title">CaixaViva</div>
+        <div class="login-sub">PLANO PRO</div>
         <div class="login-sub">Dashboard financeiro em tempo real</div>
     </div>""", unsafe_allow_html=True)
     _, col_c, _ = st.columns([1,1.4,1])
