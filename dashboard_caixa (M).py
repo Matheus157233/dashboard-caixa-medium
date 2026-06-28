@@ -1,8 +1,3 @@
-"""
-CaixaViva — Plano Profissional
-Funcionalidades: KPIs + Fluxo diário + Pizzas + Barras + Mensal + Top categorias + Tabela + Filtros avançados
-"""
-
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -21,8 +16,8 @@ st.set_page_config(page_title="CaixaViva Pro", page_icon="💰", layout="wide",
 # ══════════════════════════════════════════════════════════════════════════════
 @st.cache_resource
 def get_supabase():
-    url  = st.secrets["SUPABASE_URL"]
-    key  = st.secrets["SUPABASE_KEY"]
+    url  = st.secrets["https://xwdduxynyighcjdaeovh.supabase.co"]
+    key  = st.secrets["eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh3ZGR1eHlueWlnaGNqZGFlb3ZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI2NjY5NTgsImV4cCI6MjA5ODI0Mjk1OH0.a67heUXJsaT06wowM8703p2jUGzjblvwBBze9nc03Y8"]
     return create_client(url, key)
 
 def carregar_lembretes(usuario: str) -> list:
@@ -70,10 +65,10 @@ def deletar_lembrete(lembrete_id: int):
 def _h(s): return hashlib.sha256(s.encode()).hexdigest()
 
 CLIENTES = {
-    "demo": {
+    "demo_pro": {
         "senha_hash": _h("demo456"),
         "nome": "Empresa Demo Pro",
-        "sheet_url": "https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVE2upms/export?format=csv&gid=0",
+        "sheet_url": "https://docs.google.com/spreadsheets/d/12niquKcUF-_gZPpJWUVJu2OKddUzOnBriGEe1KPcWG8/export?format=csv&gid=0",
         "cor": "#16a34a",
     },
     # "cliente1": {
