@@ -15,22 +15,6 @@ st.set_page_config(page_title="CaixaViva", page_icon="💰", layout="wide",
 def _h(s): return hashlib.sha256(s.encode()).hexdigest()
 
 CLIENTES = {
-    "demo_basico": {
-        "senha_hash": _h("demo123"), "nome": "Empresa Demo Básico",
-        "sheet_url": "https://docs.google.com/spreadsheets/d/1H3uOYRoOqCXgRm9tNtGiBnHidYdVAdqBDMwPd5nc1rM/export?format=csv&gid=0",
-        "cor": "#2563eb", "plano": "basico", "meta_mensal": 0,
-    },
-    "demo_pro": {
-        "senha_hash": _h("demo456"), "nome": "Empresa Demo Pro",
-        "sheet_url": "https://docs.google.com/spreadsheets/d/1H3uOYRoOqCXgRm9tNtGiBnHidYdVAdqBDMwPd5nc1rM/export?format=csv&gid=0",
-        "cor": "#16a34a", "plano": "profissional", "meta_mensal": 0,
-    },
-    "demo_emp": {
-        "senha_hash": _h("demo789"), "nome": "Empresa Demo Empresarial",
-        "sheet_url": "https://docs.google.com/spreadsheets/d/1H3uOYRoOqCXgRm9tNtGiBnHidYdVAdqBDMwPd5nc1rM/export?format=csv&gid=0",
-        "cor": "#7c3aed", "plano": "empresarial", "meta_mensal": 30000,
-        "alerta_saidas_pct": 60,   # alerta se saídas > 60% das entradas
-    },
     "Ipipqbrasil": {
         "senha_hash": _h("Ipipqbrasil2026"), "nome": "Empresa Demo Pro",
         "sheet_url": "https://docs.google.com/spreadsheets/d/1H3uOYRoOqCXgRm9tNtGiBnHidYdVAdqBDMwPd5nc1rM/export?format=csv&gid=0",
