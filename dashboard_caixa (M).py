@@ -16,8 +16,8 @@ st.set_page_config(page_title="CaixaViva Pro", page_icon="💰", layout="wide",
 # ══════════════════════════════════════════════════════════════════════════════
 @st.cache_resource
 def get_supabase():
-    url  = st.secrets["https://xwdduxynyighcjdaeovh.supabase.co"]
-    key  = st.secrets["eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh3ZGR1eHlueWlnaGNqZGFlb3ZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI2NjY5NTgsImV4cCI6MjA5ODI0Mjk1OH0.a67heUXJsaT06wowM8703p2jUGzjblvwBBze9nc03Y8"]
+    url  = st.secrets["eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh3ZGR1eHlueWlnaGNqZGFlb3ZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI2NjY5NTgsImV4cCI6MjA5ODI0Mjk1OH0.a67heUXJsaT06wowM8703p2jUGzjblvwBBze9nc03Y8"]
+    key  = st.secrets["https://xwdduxynyighcjdaeovh.supabase.co"]
     return create_client(url, key)
 
 def carregar_lembretes(usuario: str) -> list:
