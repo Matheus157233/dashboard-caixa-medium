@@ -20,6 +20,7 @@ CLIENTES = {
         "sheet_url": "https://docs.google.com/spreadsheets/d/1H3uOYRoOqCXgRm9tNtGiBnHidYdVAdqBDMwPd5nc1rM/export?format=csv&gid=0",
         "cor": "#16a34a", "plano": "profissional", "meta_mensal": 0,
     },
+
 }
 
 PLANOS = {
