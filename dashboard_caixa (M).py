@@ -17,7 +17,7 @@ def _h(s): return hashlib.sha256(s.encode()).hexdigest()
 CLIENTES = {
     "demo_pro": {
         "senha_hash": _h("demo456"), "nome": "Empresa Demo Pro",
-        "sheet_url": "https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVE2upms/export?format=csv&gid=0",
+        "sheet_url": "https://docs.google.com/spreadsheets/d/1H3uOYRoOqCXgRm9tNtGiBnHidYdVAdqBDMwPd5nc1rM/export?format=csv&gid=0",
         "cor": "#16a34a", "plano": "profissional", "meta_mensal": 0,
     },
     
