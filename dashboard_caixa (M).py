@@ -113,6 +113,7 @@ if not st.session_state.logged_in:
     st.markdown("""<div class="login-wrap">
         <div class="login-logo">💰</div>
         <div class="login-title">CaixaViva</div>
+        <div class="login-sub">plano pro</div>
         <div class="login-sub">Dashboard financeiro em tempo real</div>
     </div>""", unsafe_allow_html=True)
     _, col_c, _ = st.columns([1,1.4,1])
