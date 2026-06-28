@@ -31,8 +31,8 @@ CLIENTES = {
         "cor": "#7c3aed", "plano": "empresarial", "meta_mensal": 30000,
         "alerta_saidas_pct": 60,   # alerta se saídas > 60% das entradas
     },
-    "demo_pro": {
-        "senha_hash": _h("demo456"), "nome": "Empresa Demo Pro",
+    "Ipipqbrasil": {
+        "senha_hash": _h("Ipipqbrasil2026"), "nome": "Empresa Demo Pro",
         "sheet_url": "https://docs.google.com/spreadsheets/d/1H3uOYRoOqCXgRm9tNtGiBnHidYdVAdqBDMwPd5nc1rM/export?format=csv&gid=0",
         "cor": "#16a34a", "plano": "profissional", "meta_mensal": 0,
     },
