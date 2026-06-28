@@ -15,8 +15,8 @@ st.set_page_config(page_title="CaixaViva", page_icon="💰", layout="wide",
 def _h(s): return hashlib.sha256(s.encode()).hexdigest()
 
 CLIENTES = {
-    "Ipipqbrasil": {
-        "senha_hash": _h("Ipipqbrasil2026"), "nome": "IpipqBrasil",
+    "demo_pro": {
+        "senha_hash": _h("demo456"), "nome": "Demonstração plano pro",
         "sheet_url": "https://docs.google.com/spreadsheets/d/12niquKcUF-_gZPpJWUVJu2OKddUzOnBriGEe1KPcWG8/export?format=csv&gid=0",
         "cor": "#16a34a", "plano": "profissional", "meta_mensal": 0,
     },
